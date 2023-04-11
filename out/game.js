@@ -1,9 +1,12 @@
+var WIDTH = window.screen.availWidth;
+var HEIGHT = window.screen.availHeight * window.devicePixelRatio;
+
 // Create a Phaser game object
 var game = new Phaser.Game(
-    800, 600,
-    Phaser.AUTO, '',
-    { preload: preload, create: create, update: update }
-  );
+  WIDTH, HEIGHT,
+  Phaser.AUTO, '',
+  { preload: preload, create: create, update: update }
+);
   
   // Load game assets
   function preload() {
@@ -79,8 +82,8 @@ var game = new Phaser.Game(
   
   // Spawn a new piece of food at a random location
   function spawnFood() {
-    var foodX = Math.floor(Math.random() * 700) + 50;
-    var foodY = Math.floor(Math.random() * 500) + 50;
+    var foodX = Math.floor(Math.random() * HEIGHT);
+    var foodY = Math.floor(Math.random() * WIDTH);
     var food = game.add.sprite(foodX, foodY, 'food');
     food.anchor.set(0.5);
     game.physics.arcade.enable(food);
@@ -95,7 +98,7 @@ function addBodyPart() {
 
     // Position new body part behind the head
     var lastIndex = snakeBody.length - 1;
-    newBodyPart.x = snakeBody[lastIndex].x + 20;
-    newBodyPart.y = snakeBody[lastIndex].y + 20;
+    newBodyPart.x = snakeBody[lastIndex].x;
+    newBodyPart.y = snakeBody[lastIndex].y;
 }
   
