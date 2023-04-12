@@ -1,0 +1,11 @@
+{
+  "appId": "com.constrictor.app",
+  "appName": "constrictor",
+  "bundledWebRuntime": false,
+  "webDir": "out",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
